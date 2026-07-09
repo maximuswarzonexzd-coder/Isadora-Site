@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Você, Meu Amor 💛</title>
+<link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;700&family=Poppins:wght@200;300;400;600&family=Parisienne&display=swap)" rel="stylesheet">
+<style>
+/* ===================== RESET & BASE ===================== */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Poppins',sans-serif;
+  background:#0d0d1a;
+  color:#fff;
+  overflow-x:hidden;
+  cursor:none;
+}
+::selection{background:#ff6b9d;color:#fff;}
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background:#0d0d1a;}
+::-webkit-scrollbar-thumb{background:linear-gradient(#ff6b9d,#ffd93d);border-radius:10px;}
+
+/* ===================== CUSTOM CURSOR ===================== */
+.cursor-dot{
+  position:fixed;width:10px;height:10px;background:#ff6b9d;
+  border-radius:50%;pointer-events:none;z-index:99999;
+  transition:transform 0.1s ease;mix-blend-mode:screen;
+}
+.cursor-ring{
+  position:fixed;width:40px;height:40px;border:2px solid #ffd93d;
+  border-radius:50%;pointer-events:none;z-index:99998;
+  transition:transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+  transform:translate(-50%,-50%);
+}
+
+/* ===================== ANIMATED BACKGROUND ===================== */
+.bg-gradient{
+  position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;
+  background:linear-gradient(-45deg,#1a1a2e,#16213e,#0f3460,#533483,#1a1a2e);
+  background-size:400% 400%;
+  animation:gradientShift 15s ease infinite;
+}
+@keyframes gradientShift{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* Stars */
+.stars{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;}
+.star{
+  position:absolute;background:#fff;border-radius:50%;
+  animation:twinkle 3s infinite ease-in-out;
+}
+@keyframes twinkle{
+  0%,100%{opacity:0.3;transform:scale(1);}
+  50%{opacity:1;transform:scale(1.5);}
+}
+
+/* ===================== FLOATING PETALS ===================== */
+.petals-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:hidden;}
+.petal{
+  position:absolute;top:-50px;
+  font-size:20px;
+  animation:fall linear infinite;
+  opacity:0.7;
+}
+@keyframes fall{
+  0%{transform:translateY(0) translateX(0) rotate(0deg);opacity:1;}
+  100%{transform:translateY(110vh) translateX(100px) rotate(720deg);opacity:0;}
+}
+
+/* ===================== SNOWFLAKES (Switzerland) ===================== */
+.snowflake{
+  position:fixed;top:-20px;color:#e0f0ff;font-size:14px;
+  pointer-events:none;z-index:2;
+  animation:snowfall linear infinite;
+}
+@keyframes snowfall{
+  0%{transform:translateY(0) translateX(0);opacity:0.8;}
+  100%{transform:translateY(110vh) translateX(50px);opacity:0;}
+}
+
+/* ===================== NAVIGATION ===================== */
+nav{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  display:flex;justify-content:center;gap:30px;
+  padding:18px 20px;
+  background:rgba(13,13,26,0.6);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,107,157,0.2);
+  transition:all 0.4s ease;
+}
+nav a{
+  color:#ffd93d;text-decoration:none;font-size:0.85rem;
+  font-weight:300;letter-spacing:1px;text-transform:uppercase;
+  position:relative;transition:color 0.3s;
+}
+nav a::after{
+  content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;
+  background:#ff6b9d;transition:width 0.3s;
+}
+nav a:hover{color:#ff6b9d;}
+nav a:hover::after{width:100%;}
+
+/* ===================== HERO SECTION ===================== */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+  position:relative;padding:60px 20px;
+}
+.hero-glow{
+  position:absolute;width:500px;height:500px;
+  background:radial-gradient(circle,rgba(255,107,157,0.15),transparent 70%);
+  border-radius:50%;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  animation:pulseGlow 4s ease-in-out infinite;
+}
+@keyframes pulseGlow{
+  0%,100%{transform:translate(-50%,-50%) scale(1);opacity:0.5;}
+  50%{transform:translate(-50%,-50%) scale(1.3);opacity:0.8;}
+}
+.hero-pretitle{
+  font-size:1rem;letter-spacing:6px;text-transform:uppercase;
+  color:#ffd93d;margin-bottom:20px;font-weight:300;
+  opacity:0;animation:fadeUp 1s 0.3s forwards;
+}
+.hero-title{
+  font-family:'Parisienne',cursive;
+  font-size:clamp(3rem,10vw,7rem);
+  background:linear-gradient(135deg,#ff6b9d,#ffd93d,#ff6b9d);
+  background-size:200% auto;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:shineText 4s linear infinite,fadeUp 1s 0.6s forwards;
+  opacity:0;
+  text-shadow:0 0 80px rgba(255,107,157,0.3);
+}
+@keyframes shineText{to{background-position:200% center;}}
+.hero-subtitle{
+  font-family:'Dancing Script',cursive;font-size:clamp(1.2rem,4vw,2rem);
+  color:#fff;margin-top:10px;opacity:0;
+  animation:fadeUp 1s 1s forwards;
+}
+.hero-typewriter{
+  margin-top:30px;font-size:1.1rem;color:#ccc;font-weight:300;
+  max-width:600px;line-height:1.8;
+  min-height:60px;opacity:0;
+  animation:fadeUp 1s 1.5s forwards;
+}
+.cursor-blink{
+  display:inline-block;width:2px;height:1.2em;background:#ff6b9d;
+  margin-left:2px;vertical-align:middle;
+  animation:blink 0.8s infinite;
+}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+.scroll-indicator{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  font-size:0.8rem;color:#ffd93d;letter-spacing:2px;
+  animation:bounce 2s infinite;opacity:0;
+  animation:bounce 2s 2s infinite,fadeUp 1s 2s forwards;
+}
+@keyframes bounce{
+  0%,100%{transform:translateX(-50%) translateY(0);}
+  50%{transform:translateX(-50%) translateY(10px);}
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* ===================== SECTIONS GENERAL ===================== */
+section{padding:100px 20px;position:relative;}
+.section-title{
+  text-align:center;font-family:'Dancing Script',cursive;
+  font-size:clamp(2rem,6vw,3.5rem);
+  margin-bottom:20px;
+  background:linear-gradient(135deg,#ffd93d,#ff6b9d);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.section-subtitle{
+  text-align:center;font-size:0.9rem;color:#aaa;
+  letter-spacing:3px;text-transform:uppercase;margin-bottom:60px;
+}
+
+/* ===================== COUNTER SECTION ===================== */
+.counter-section{
+  display:flex;flex-direction:column;align-items:center;
+  background:rgba(255,255,255,0.02);
+}
+.counter-grid{
+  display:flex;flex-wrap:wrap;gap:20px;justify-content:center;
+  margin-top:40px;
+}
+.counter-item{
+  background:rgba(255,107,157,0.08);
+  border:1px solid rgba(255,107,157,0.3);
+  border-radius:16px;padding:30px 20px;min-width:120px;
+  text-align:center;backdrop-filter:blur(10px);
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.counter-item:hover{
+  transform:translateY(-10px) scale(1.05);
+  box-shadow:0 20px 40px rgba(255,107,157,0.2);
+}
+.counter-number{
+  font-size:2.5rem;font-weight:700;
+  background:linear-gradient(135deg,#ff6b9d,#ffd93d);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.counter-label{font-size:0.75rem;color:#aaa;text-transform:uppercase;letter-spacing:2px;margin-top:8px;}
+
+/* ===================== TIMELINE ===================== */
+.timeline{
+  position:relative;max-width:800px;margin:0 auto;padding:20px 0;
+}
+.timeline::before{
+  content:'';position:absolute;left:50%;top:0;bottom:0;width:3px;
+  background:linear-gradient(#ff6b9d,#ffd93d,#ff6b9d);
+  transform:translateX(-50%);border-radius:2px;
+}
+.timeline-item{
+  position:relative;width:50%;padding:20px 40px;margin-bottom:20px;
+}
+.timeline-item:nth-child(odd){left:0;text-align:right;}
+.timeline-item:nth-child(even){left:50%;}
+.timeline-dot{
+  position:absolute;width:18px;height:18px;border-radius:50%;
+  background:#ff6b9d;border:3px solid #0d0d1a;
+  top:30px;box-shadow:0 0 20px #ff6b9d;
+  animation:dotPulse 2s infinite;
+}
+.timeline-item:nth-child(odd) .timeline-dot{right:-9px;}
+.timeline-item:nth-child(even) .timeline-dot{left:-9px;}
+@keyframes dotPulse{
+  0%,100%{box-shadow:0 0 20px #ff6b9d;}
+  50%{box-shadow:0 0 40px #ff6b9d,0 0 60px #ffd93d;}
+}
+.timeline-date{
+  font-size:0.8rem;color:#ffd93d;letter-spacing:2px;text-transform:uppercase;
+}
+.timeline-content{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,107,157,0.2);
+  border-radius:12px;padding:20px;margin-top:10px;
+  backdrop-filter:blur(10px);transition:transform 0.3s;
+}
+.timeline-content:hover{transform:scale(1.03);}
+.timeline-content h3{font-family:'Dancing Script',cursive;font-size:1.5rem;color:#ff6b9d;margin-bottom:8px;}
+.timeline-content p{font-size:0.9rem;color:#ccc;line-height:1.6;}
+
+/* ===================== LOVE CARDS (Things she loves) ===================== */
+.love-cards{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;max-width:1000px;margin:0 auto;
+}
+.love-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,107,157,0.2);
+  border-radius:20px;padding:40px 30px;text-align:center;
+  backdrop-filter:blur(10px);transition:all 0.4s;
+  position:relative;overflow:hidden;
+}
+.love-card::before{
+  content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:radial-gradient(circle,rgba(255,107,157,0.1),transparent 60%);
+  opacity:0;transition:opacity 0.4s;
+}
+.love-card:hover::before{opacity:1;}
+.love-card:hover{
+  transform:translateY(-15px);
+  border-color:rgba(255,217,61,0.5);
+  box-shadow:0 30px 60px rgba(255,107,157,0.15);
+}
+.love-card-icon{font-size:3rem;margin-bottom:15px;display:block;}
+.love-card h3{font-family:'Dancing Script',cursive;font-size:1.6rem;color:#ffd93d;margin-bottom:10px;}
+.love-card p{font-size:0.85rem;color:#bbb;line-height:1.7;position:relative;z-index:1;}
+
+/* ===================== SWITZERLAND SECTION ===================== */
+.swiss-section{
+  text-align:center;
+  background:linear-gradient(180deg,transparent,rgba(83,52,131,0.15),transparent);
+}
+.swiss-illustration{
+  position:relative;max-width:600px;margin:40px auto;height:300px;
+}
+.swiss-mountain{
+  position:absolute;bottom:0;width:0;height:0;
+  border-style:solid;
+}
+.mountain-1{
+  left:10%;border-width:0 100px 200px 80px;
+  border-color:transparent transparent rgba(255,255,255,0.15) transparent;
+}
+.mountain-2{
+  left:35%;border-width:0 120px 280px 120px;
+  border-color:transparent transparent rgba(255,255,255,0.25) transparent;
+}
+.mountain-3{
+  left:55%;border-width:0 90px 180px 70px;
+  border-color:transparent transparent rgba(255,255,255,0.1) transparent;
+}
+.swiss-snow-cap{
+  position:absolute;bottom:200px;left:35%;
+  width:0;height:0;border-style:solid;
+  border-width:0 50px 50px 70px;
+  border-color:transparent transparent #fff transparent;
+  opacity:0.8;
+}
+.swiss-flag{
+  position:absolute;bottom:260px;left:48%;
+  font-size:1.5rem;animation:wave 3s ease-in-out infinite;
+}
+@keyframes wave{
+  0%,100%{transform:rotate(-5deg);}
+  50%{transform:rotate(5deg);}
+}
+.swiss-text{
+  font-family:'Dancing Script',cursive;font-size:1.5rem;
+  color:#ffd93d;margin-top:20px;max-width:500px;margin-left:auto;margin-right:auto;
+  line-height:1.8;
+}
+
+/* ===================== DORAMA / K-POP SECTION ===================== */
+.dorama-section{text-align:center;}
+.dorama-cards{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:20px;
+  max-width:900px;margin:0 auto;
+}
+.dorama-card{
+  width:200px;height:280px;perspective:1000px;
+}
+.dorama-inner{
+  width:100%;height:100%;position:relative;
+  transform-style:preserve-3d;transition:transform 0.8s;
+}
+.dorama-card:hover .dorama-inner{transform:rotateY(180deg);}
+.dorama-front,.dorama-back{
+  position:absolute;width:100%;height:100%;
+  backface-visibility:hidden;border-radius:16px;
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;padding:20px;
+}
+.dorama-front{
+  background:linear-gradient(135deg,#ff6b9d,#533483);
+  border:2px solid rgba(255,217,61,0.3);
+}
+.dorama-back{
+  background:linear-gradient(135deg,#0f3460,#16213e);
+  border:2px solid rgba(255,107,157,0.3);
+  transform:rotateY(180deg);
+}
+.dorama-front .icon{font-size:3rem;margin-bottom:10px;}
+.dorama-front h4{font-family:'Noto Sans KR',sans-serif;font-size:1.1rem;color:#ffd93d;}
+.dorama-back p{font-size:0.8rem;color:#ccc;line-height:1.6;text-align:center;}
+
+/* ===================== LOVE LETTER ===================== */
+.letter-section{
+  max-width:700px;margin:0 auto;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,107,157,0.2);
+  border-radius:20px;padding:50px 40px;
+  backdrop-filter:blur(10px);position:relative;
+}
+.letter-section::before{
+  content:'💌';position:absolute;top:-25px;left:50%;transform:translateX(-50%);
+  font-size:2.5rem;background:#0d0d1a;padding:0 15px;border-radius:50%;
+}
+.letter-text{font-size:1rem;line-height:2.2;color:#ddd;text-align:center;}
+.letter-text p{margin-bottom:20px;}
+.letter-text .highlight{color:#ff6b9d;font-weight:600;}
+.letter-text .gold{color:#ffd93d;}
+.letter-signature{
+  font-family:'Dancing Script',cursive;font-size:2rem;
+  text-align:right;color:#ff6b9d;margin-top:30px;
+}
+
+/* ===================== LOVE METER (Interactive) ===================== */
+.meter-section{text-align:center;}
+.love-meter-container{
+  max-width:500px;margin:40px auto 0;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,107,157,0.2);
+  border-radius:20px;padding:40px;
+}
+.love-meter{
+  width:100%;height:30px;background:rgba(255,255,255,0.1);
+  border-radius:15px;overflow:hidden;position:relative;
+}
+.love-meter-fill{
+  height:100%;width:0%;
+  background:linear-gradient(90deg,#ff6b9d,#ffd93d,#ff6b9d);
+  background-size:200% 100%;
+  border-radius:15px;
+  transition:width 0.5s ease;
+  animation:meterShine 2s linear infinite;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.8rem;font-weight:600;color:#0d0d1a;
+}
+@keyframes meterShine{to{background-position:200% 0;}}
+.meter-btn{
+  margin-top:25px;padding:12px 40px;
+  background:linear-gradient(135deg,#ff6b9d,#ffd93d);
+  border:none;border-radius:30px;color:#0d0d1a;
+  font-weight:600;font-size:0.9rem;cursor:none;
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.meter-btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 10px 30px rgba(255,107,157,0.4);
+}
+.meter-message{
+  margin-top:20px;font-family:'Dancing Script',cursive;
+  font-size:1.4rem;color:#ffd93d;min-height:30px;
+}
+
+/* ===================== FINAL SECTION ===================== */
+.final{
+  min-height:80vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+  padding:120px 20px;position:relative;
+}
+.final-heart{
+  font-size:4rem;animation:heartBeat 1.5s infinite;
+}
+@keyframes heartBeat{
+  0%,100%{transform:scale(1);}
+  10%,30%{transform:scale(1.3);}
+  20%{transform:scale(1.1);}
+  40%{transform:scale(1.25);}
+  50%{transform:scale(1);}
+}
+.final-text{
+  font-family:'Parisienne',cursive;font-size:clamp(2rem,6vw,4rem);
+  background:linear-gradient(135deg,#ff6b9d,#ffd93d);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin:30px 0;
+}
+.final-sub{
+  font-size:0.9rem;color:#aaa;letter-spacing:3px;text-transform:uppercase;
+}
+
+/* ===================== MUSIC PLAYER ===================== */
+.music-player{
+  position:fixed;bottom:20px;right:20px;z-index:1001;
+  background:rgba(13,13,26,0.8);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,107,157,0.3);
+  border-radius:50px;padding:12px 20px;
+  display:flex;align-items:center;gap:12px;
+  transition:all 0.3s;
+}
+.music-player:hover{box-shadow:0 10px 30px rgba(255,107,157,0.3);}
+.music-btn{
+  width:40px;height:40px;border-radius:50%;border:none;
+  background:linear-gradient(135deg,#ff6b9d,#ffd93d);
+  color:#0d0d1a;font-size:1.1rem;cursor:none;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform 0.3s;
+}
+.music-btn:hover{transform:scale(1.15);}
+.music-info{font-size:0.75rem;color:#ccc;max-width:150px;}
+.music-info .title{color:#ffd93d;font-weight:600;}
+.music-bars{display:flex;gap:2px;align-items:flex-end;height:20px;}
+.music-bar{
+  width:3px;background:#ff6b9d;border-radius:2px;
+  animation:barWave 0.8s infinite ease-in-out;
+}
+.music-bar:nth-child(2){animation-delay:0.2s;}
+.music-bar:nth-child(3){animation-delay:0.4s;}
+.music-bar:nth-child(4){animation-delay:0.1s;}
+@keyframes barWave{
+  0%,100%{height:5px;}
+  50%{height:20px;}
+}
+.music-bars.paused .music-bar{animation-play-state:paused;height:5px;}
+
+/* ===================== CLICK HEART BURST ===================== */
+.heart-burst{
+  position:fixed;pointer-events:none;z-index:9997;
+  font-size:20px;animation:burst 1s ease-out forwards;
+}
+@keyframes burst{
+  0%{transform:translate(0,0) scale(1);opacity:1;}
+  100%{transform:translate(var(--tx),var(--ty)) scale(0);opacity:0;}
+}
+
+/* ===================== REVEAL ANIMATION ===================== */
+.reveal{
+  opacity:0;transform:translateY(50px);
+  transition:opacity 0.8s, transform 0.8s;
+}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ===================== RESPONSIVE ===================== */
+@media(max-width:768px){
+  nav{gap:15px;flex-wrap:wrap;}
+  nav a{font-size:0.7rem;}
+  .timeline::before{left:20px;}
+  .timeline-item{width:100%;left:0!important;text-align:left!important;padding-left:50px;}
+  .timeline-item .timeline-dot{left:11px!important;right:auto!important;}
+  .dorama-card{width:160px;height:240px;}
+  .counter-item{min-width:90px;padding:20px 15px;}
+  .counter-number{font-size:1.8rem;}
+  body{cursor:auto;}
+  .cursor-dot,.cursor-ring{display:none;}
+  .music-player{bottom:10px;right:10px;padding:8px 15px;}
+  .music-info{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Backgrounds -->
+<div class="bg-gradient"></div>
+<div class="stars" id="stars"></div>
+<div class="petals-container" id="petals"></div>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <a href="#inicio">Início</a>
+  <a href="#tempo">Nosso Tempo</a>
+  <a href="#historia">Nossa História</a>
+  <a href="#amo">O Que Amo</a>
+  <a href="#suica">Suíça</a>
+  <a href="#dorama">Dorama</a>
+  <a href="#carta">Carta</a>
+  <a href="#medidor">Amor</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-glow"></div>
+  <p class="hero-pretitle">Um presente feito de coração</p>
+  <h1 class="hero-title">Para Você</h1>
+  <p class="hero-subtitle">minha loira linda e perfeita 💛</p>
+  <p class="hero-typewriter" id="typewriter"></p>
+  <p class="scroll-indicator">↓ role para o nosso mundo ↓</p>
+</section>
+
+<!-- COUNTER -->
+<section class="counter-section reveal" id="tempo">
+  <h2 class="section-title">Nosso Tempo Juntos</h2>
+  <p class="section-subtitle">cada segundo é nosso</p>
+  <div class="counter-grid" id="counterGrid">
+    <div class="counter-item"><div class="counter-number" id="days">0</div><div class="counter-label">Dias</div></div>
+    <div class="counter-item"><div class="counter-number" id="hours">0</div><div class="counter-label">Horas</div></div>
+    <div class="counter-item"><div class="counter-number" id="minutes">0</div><div class="counter-label">Minutos</div></div>
+    <div class="counter-item"><div class="counter-number" id="seconds">0</div><div class="counter-label">Segundos</div></div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="historia" class="reveal">
+  <h2 class="section-title">Nossa História</h2>
+  <p class="section-subtitle">os dias que mudaram tudo</p>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">05 de Junho</div>
+      <div class="timeline-content">
+        <h3>O Começo</h3>
+        <p>O dia em que tudo começou. O dia em que o universo decidiu nos juntar. Não tinha plano, não tinha roteiro — só tinha um sentimento enorme que cabia em todo o peito.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">12 de Junho</div>
+      <div class="timeline-content">
+        <h3>Oficialmente Nossos</h3>
+        <p>Assumi você. Pra mim, pra tudo, pra sempre. Esse foi o dia em que olhei nos seus olhos e soube: não é fase, não é sorte — é amor de verdade.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Hoje</div>
+      <div class="timeline-content">
+        <h3>E Sempre Vai Ter</h3>
+        <p>Pouco tempo? Talvez. Mas o que sentimos não se mede em calendário. Se medisse, já seria uma vida inteira. E é exatamente isso que eu quero com você.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THINGS I LOVE ABOUT YOU -->
+<section id="amo" class="reveal">
+  <h2 class="section-title">Coisas Que Eu Amo Em Você</h2>
+  <p class="section-subtitle">e a lista só cresce</p>
+  <div class="love-cards">
+    <div class="love-card">
+      <span class="love-card-icon">🌷</span>
+      <h3>Tulipas</h3>
+      <p>Você ama tulipas e eu entendo o porquê. Cada pétala é delicada, vibrante, única — exatamente como você. Se eu pudesse, plantaria um campo inteiro só pra te ver sorrir.</p>
+    </div>
+    <div class="love-card">
+      <span class="love-card-icon">💐</span>
+      <h3>Lírios</h3>
+      <p>Lírios têm aquela elegância que não precisa gritar pra ser notada. Pura, branca, serena. Igualzinho ao jeito que você carrega a beleza — natural, sem esforço, sem precisar tentar.</p>
+    </div>
+    <div class="love-card">
+      <span class="love-card-icon">🎬</span>
+      <h3>Doramas</h3>
+      <p>Você ama dorama e eu te amo assistindo dorama. Aquele brilho nos seus olhos quando a cena é boa? Isso é melhor que qualquer episódio. Você é meu drama favorito — com final feliz garantido.</p>
+    </div>
+    <div class="love-card">
+      <span class="love-card-icon">🎵</span>
+      <h3>Música Coreana</h3>
+      <p>As músicas que você escuta têm melodia, têm alma, têm sentimento — igual a você. Eu não entendo todas as palavras, mas entendo o que você sente ouvindo. E isso é o que importa.</p>
+    </div>
+    <div class="love-card">
+      <span class="love-card-icon">🏔️</span>
+      <h3>A Suíça</h3>
+      <p>Você sonha com a Suíça e eu sonho com você lá. Montanhas, neve, lagos, paz. Um dia eu te levo. E quando a gente chegar, eu vou apontar pro horizonte e dizer: "tão lindo quanto você".</p>
+    </div>
+    <div class="love-card">
+      <span class="love-card-icon">💛</span>
+      <h3>Tudo Em Você</h3>
+      <p>Loira, linda, perfeita — e isso é só o começo. O que me prendeu não foi só a beleza, foi o coração enorme, o sorriso que ilumina qualquer dia cinza, o amor que você dá de um jeito que eu nem sabia que existia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SWITZERLAND -->
+<section class="swiss-section reveal" id="suica">
+  <h2 class="section-title">A Suíça Dos Nossos Sonhos</h2>
+  <p class="section-subtitle">um dia a gente chega lá</p>
+  <div class="swiss-illustration">
+    <div class="swiss-mountain mountain-1"></div>
+    <div class="swiss-mountain mountain-2"></div>
+    <div class="swiss-snow-cap"></div>
+    <div class="swiss-mountain mountain-3"></div>
+    <div class="swiss-flag">🇨🇭</div>
+  </div>
+  <p class="swiss-text">
+    Eu vou te levar pra ver as montanhas cobertas de neve, os lagos verdes, as cidadezinhas que parecem tiradas de um conto de fadas. A gente vai andar de mãos dadas no frio, tomando chocolate quente, rindo sem motivo. A Suíça é linda — mas com você lá, seria simplesmente perfeita.
+  </p>
+</section>
+
+<!-- DORAMA / K-POP -->
+<section class="dorama-section reveal" id="dorama">
+  <h2 class="section-title">Nosso Dorama Pessoal</h2>
+  <p class="section-subtitle">sem clichê, com final feliz</p>
+  <div class="dorama-cards">
+    <div class="dorama-card">
+      <div class="dorama-inner">
+        <div class="dorama-front">
+          <span class="icon">🌸</span>
+          <h4>Episódio 1</h4>
+        </div>
+        <div class="dorama-back">
+          <p>O encontro que não estava nos planos, mas estava no destino. 05 de junho — o dia em que tudo virou "antes e depois" de você.</p>
+        </div>
+      </div>
+    </div>
+    <div class="dorama-card">
+      <div class="dorama-inner">
+        <div class="dorama-front">
+          <span class="icon">💌</span>
+          <h4>Episódio 2</h4>
+        </div>
+        <div class="dorama-back">
+          <p>A confissão. 12 de junho — o dia em que assumi pra todo mundo o que meu coração já sabia desde o começo: você é minha.</p>
+        </div>
+      </div>
+    </div>
+    <div class="dorama-card">
+      <div class="dorama-inner">
+        <div class="dorama-front">
+          <span class="icon">🎶</span>
+          <h4>OST</h4>
+        </div>
+        <div class="dorama-back">
+          <p>Trilha sonora? É qualquer música coreana que você coloca no fone. É o som da sua risada. É o silêncio bom de quando a gente tá junto e não precisa falar nada.</p>
+        </div>
+      </div>
+    </div>
+    <div class="dorama-card">
+      <div class="dorama-inner">
+        <div class="dorama-front">
+          <span class="icon">💍</span>
+          <h4>Final</h4>
+        </div>
+        <div class="dorama-back">
+          <p>Esse dorama não tem episódio final. Ele só termina quando a gente decide — e eu já decidi: é pra sempre. Spoiler: a gente tem um final muito, muito feliz.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOVE LETTER -->
+<section id="carta" class="reveal">
+  <h2 class="section-title">Uma Carta Pra Você</h2>
+  <p class="section-subtitle">do fundo do coração</p>
+  <div class="letter-section">
+    <div class="letter-text">
+      <p>Eu não sei escrever carta. Nunca soube. Mas pra você eu vou tentar, porque <span class="highlight">você merece cada palavra</span> — e mesmo as que eu não consigo dizer, você lê nos meus olhos.</p>
+      <p>Parece pouco tempo pra alguns. Pra mim, parece uma vida inteira comprimida em poucas semanas. <span class="gold">Porque com você, o tempo não corre — ele dança.</span> Cada dia é mais lindo que o anterior, e eu fico pensando: como é que eu tava vivendo antes de você?</p>
+      <p>Você é loira, sim. Linda, sim. Perfeita, também. Mas o que me prendeu de verdade foi <span class="highlight">o jeito que você ama</span> — sem medo, sem reserva, sem metade. Você ama inteiro. E eu nunca tinha sido amado assim antes.</p>
+      <p>Eu sei que você ama tulipas, lírios, dorama, música coreana, a Suíça. Eu vou tentar te dar tudo isso — e o que eu não conseguir dar em coisa, eu vou dar em presença, em tempo, em amor de verdade.</p>
+      <p><span class="gold">Obrigado por existir. Obrigado por me escolher.</span> Eu escolho você de volta — hoje, amanhã, e todos os dias que vierem depois.</p>
+    </div>
+    <div class="letter-signature">Com todo o meu amor 💛</div>
+  </div>
+</section>
+
+<!-- LOVE METER -->
+<section class="meter-section reveal" id="medidor">
+  <h2 class="section-title">Medidor de Amor</h2>
+  <p class="section-subtitle">clica e descobre</p>
+  <div class="love-meter-container">
+    <div class="love-meter">
+      <div class="love-meter-fill" id="meterFill">0%</div>
+    </div>
+    <button class="meter-btn" id="meterBtn">Clica Aqui 💛</button>
+    <p class="meter-message" id="meterMsg"></p>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <div class="final-heart">💛</div>
+  <h2 class="final-text">Eu Te Amo</h2>
+  <p class="final-sub">hoje · amanhã · sempre</p>
+</section>
+
+<!-- MUSIC PLAYER -->
+<div class="music-player" id="musicPlayer">
+  <button class="music-btn" id="musicBtn">▶</button>
+  <div class="music-info">
+    <div class="title">🎵 Nossa Música</div>
+    <div>clique pra tocar</div>
+  </div>
+  <div class="music-bars paused" id="musicBars">
+    <div class="music-bar"></div>
+    <div class="music-bar"></div>
+    <div class="music-bar"></div>
+    <div class="music-bar"></div>
+  </div>
+</div>
+
+<!-- Audio -->
+<audio id="bgMusic" loop>
+  <!-- TROQUE O SRC ABAIXO PELO ARQUIVO DE MÚSICA DA SUA NAMORADA -->
+  <!-- Ex: <source src="minha-musica.mp3" type="audio/mpeg"> -->
+  <source src="" type="audio/mpeg">
+  Seu navegador não suporta áudio.
+</audio>
+
+<script>
+/* ===================== CUSTOM CURSOR ===================== */
+const cursorDot = document.getElementById('cursorDot');
+const cursorRing = document.getElementById('cursorRing');
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  cursorDot.style.left = mouseX + 'px';
+  cursorDot.style.top = mouseY + 'px';
+});
+
+function animateRing(){
+  ringX += (mouseX - ringX) * 0.15;
+  ringY += (mouseY - ringY) * 0.15;
+  cursorRing.style.left = ringX + 'px';
+  cursorRing.style.top = ringY + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+
+document.querySelectorAll('a, button, .love-card, .dorama-card, .timeline-content, .counter-item').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursorRing.style.width = '60px';
+    cursorRing.style.height = '60px';
+    cursorRing.style.borderColor = '#ffd93d';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursorRing.style.width = '40px';
+    cursorRing.style.height = '40px';
+    cursorRing.style.borderColor = '#ffd93d';
+  });
+});
+
+/* ===================== STARS ===================== */
+const starsContainer = document.getElementById('stars');
+for(let i = 0; i < 120; i++){
+  const star = document.createElement('div');
+  star.className = 'star';
+  const size = Math.random() * 3 + 1;
+  star.style.width = size + 'px';
+  star.style.height = size + 'px';
+  star.style.left = Math.random() * 100 + '%';
+  star.style.top = Math.random() * 100 + '%';
+  star.style.animationDelay = Math.random() * 3 + 's';
+  star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+  starsContainer.appendChild(star);
+}
+
+/* ===================== FLOATING PETALS & SNOW ===================== */
+const petalsContainer = document.getElementById('petals');
+const petalEmojis = ['🌸','🌷','💐','💛','✨'];
+
+function createPetal(){
+  const petal = document.createElement('div');
+  petal.className = 'petal';
+  petal.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
+  petal.style.left = Math.random() * 100 + '%';
+  petal.style.fontSize = (Math.random() * 15 + 15) + 'px';
+  petal.style.animationDuration = (Math.random() * 8 + 8) + 's';
+  petal.style.opacity = Math.random() * 0.5 + 0.3;
+  petalsContainer.appendChild(petal);
+  setTimeout(() => petal.remove(), 16000);
+}
+setInterval(createPetal, 600);
+
+function createSnowflake(){
+  const flake = document.createElement('div');
+  flake.className = 'snowflake';
+  flake.textContent = '❄';
+  flake.style.left = Math.random() * 100 + '%';
+  flake.style.fontSize = (Math.random() * 10 + 8) + 'px';
+  flake.style.animationDuration = (Math.random() * 6 + 6) + 's';
+  flake.style.opacity = Math.random() * 0.6 + 0.2;
+  document.body.appendChild(flake);
+  setTimeout(() => flake.remove(), 12000);
+}
+setInterval(createSnowflake, 800);
+
+/* ===================== TYPEWRITER EFFECT ===================== */
+const typewriterTexts = [
+  "você é a coisa mais bonita que já me aconteceu...",
+  "cada dia com você é um presente que eu não mereço, mas aceito feliz...",
+  "loira, linda, perfeita — e completamente minha...",
+  "desde 05 de junho, o mundo ficou bem melhor...",
+  "isso não é pouco tempo. é só o começo de tudo..."
+];
+const tw = document.getElementById('typewriter');
+let twIndex = 0, twChar = 0, twDeleting = false;
+
+function typeWriter(){
+  const current = typewriterTexts[twIndex];
+  if(!twDeleting){
+    tw.innerHTML = current.substring(0, twChar) + '<span class="cursor-blink"></span>';
+    twChar++;
+    if(twChar > current.length){
+      twDeleting = true;
+      setTimeout(typeWriter, 2500);
+      return;
+    }
+  } else {
+    tw.innerHTML = current.substring(0, twChar) + '<span class="cursor-blink"></span>';
+    twChar--;
+    if(twChar === 0){
+      twDeleting = false;
+      twIndex = (twIndex + 1) % typewriterTexts.length;
+    }
+  }
+  setTimeout(typeWriter, twDeleting ? 40 : 80);
+}
+typeWriter();
+
+/* ===================== COUNTER ===================== */
+// Data de início: 5 de Junho de 2026
+const startDate = new Date('2026-06-05T00:00:00');
+
+function updateCounter(){
+  const now = new Date();
+  const diff = now - startDate;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  document.getElementById('days').textContent = days;
+  document.getElementById('hours').textContent = hours;
+  document.getElementById('minutes').textContent = minutes;
+  document.getElementById('seconds').textContent = seconds;
+}
+updateCounter();
+setInterval(updateCounter, 1000);
+
+/* ===================== SCROLL REVEAL ===================== */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ===================== NAVBAR SCROLL EFFECT ===================== */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 50){
+    navbar.style.padding = '10px 20px';
+    navbar.style.background = 'rgba(13,13,26,0.85)';
+  } else {
+    navbar.style.padding = '18px 20px';
+    navbar.style.background = 'rgba(13,13,26,0.6)';
+  }
+});
+
+/* ===================== LOVE METER ===================== */
+const meterBtn = document.getElementById('meterBtn');
+const meterFill = document.getElementById('meterFill');
+const meterMsg = document.getElementById('meterMsg');
+let meterValue = 0;
+
+const meterMessages = [
+  "é... tá começando 💛",
+  "tá ficando forte isso!",
+  "nossa, isso tá ficando grande...",
+  "ué, não para de crescer?!",
+  "como é que esse amor é TÃO grande?!",
+  "sério que ainda tá subindo?!",
+  "isso já passou de tudo!",
+  "amor máximo atingido. pra sempre. 💛"
+];
+
+meterBtn.addEventListener('click', () => {
+  meterValue = Math.min(meterValue + 15, 100);
+  meterFill.style.width = meterValue + '%';
+  meterFill.textContent = meterValue + '%';
+
+  const msgIndex = Math.floor((meterValue / 15));
+  meterMsg.textContent = meterMessages[Math.min(msgIndex, meterMessages.length - 1)];
+
+  if(meterValue >= 100){
+    meterBtn.textContent = 'pra sempre 💛';
+    meterBtn.disabled = true;
+    burstHearts(window.innerWidth / 2, window.innerHeight / 2, 30);
+  } else {
+    burstHearts(event.clientX, event.clientY, 8);
+  }
+});
+
+/* ===================== HEART BURST ON CLICK ===================== */
+function burstHearts(x, y, count){
+  for(let i = 0; i < count; i++){
+    const heart = document.createElement('div');
+    heart.className = 'heart-burst';
+    heart.textContent = ['💛','🌸','✨','🌷','💕'][Math.floor(Math.random() * 5)];
+    heart.style.left = x + 'px';
+    heart.style.top = y + 'px';
+    const angle = (Math.PI * 2 * i) / count;
+    const distance = Math.random() * 150 + 50;
+    heart.style.setProperty('--tx', Math.cos(angle) * distance + 'px');
+    heart.style.setProperty('--ty', Math.sin(angle) * distance + 'px');
+    heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 1000);
+  }
+}
+
+document.addEventListener('click', e => {
+  if(e.target.closest('button, a')) return;
+  burstHearts(e.clientX, e.clientY, 6);
+});
+
+/* ===================== MUSIC PLAYER ===================== */
+const music = document.getElementById('bgMusic');
+const musicBtn = document.getElementById('musicBtn');
+const musicBars = document.getElementById('musicBars');
+let musicPlaying = false;
+
+musicBtn.addEventListener('click', () => {
+  if(musicPlaying){
+    music.pause();
+    musicBtn.textContent = '▶';
+    musicBars.classList.add('paused');
+  } else {
+    if(music.querySelector('source').src){
+      music.play().catch(() => {
+        alert('Adicione um arquivo de música no código HTML! Veja o comentário na tag <audio>.');
+      });
+      musicPlaying = true;
+      musicBtn.textContent = '⏸';
+      musicBars.classList.remove('paused');
+    } else {
+      alert('🎵 Para colocar a música:\n\n1. Coloque o arquivo .mp3 na mesma pasta do HTML\n2. No código, encontre a tag <audio>\n3. Troque src="" por src="nomedamusica.mp3"');
+    }
+    return;
+  }
+  musicPlaying = !musicPlaying;
+});
+
+/* ===================== PARALLAX ON SCROLL ===================== */
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const hero = document.querySelector('.hero-glow');
+  if(hero && scrolled < window.innerHeight){
+    hero.style.transform = `translate(-50%, calc(-50% + ${scrolled * 0.3}px)) scale(${1 + scrolled * 0.0005})`;
+  }
+});
+
+/* ===================== KONAMI EASTER EGG (Korean connection) ===================== */
+let konamiCode = [];
+const konami = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+document.addEventListener('keydown', e => {
+  konamiCode.push(e.key);
+  if(konamiCode.length > konami.length) konamiCode.shift();
+  if(konamiCode.join('') === konami.join('')){
+    for(let i = 0; i < 50; i++){
+      setTimeout(() => burstHearts(Math.random() * window.innerWidth, Math.random() * window.innerHeight, 5), i * 50);
+    }
+    konamiCode = [];
+  }
+});
+</script>
+<audio id="musica" autoplay loop>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+window.addEventListener("click", () => {
+    document.getElementById("musica").play();
+}, { once: true });
+</script>
+</body>
+</html>
